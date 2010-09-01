@@ -25,48 +25,45 @@ Todos.mainPage = SC.Page.design({
       addButton: SC.ButtonView.design({
         layout: { centerY: 0, height: 24, right: 12, width: 100 },
         title:  "Add Task",
-        target: "Todos.tasksController",
+        target: "Todos.tasksArrayController",
         action: "addTask"
       })
     }),
     
     middleView: SC.SplitView.design({
-        layout: {
-            left: 0,
-            top: 36,
-            right: 0,
-            bottom: 32
-        },
+        layout: { left: 0, top: 36, right: 0, bottom: 32 },
         layoutDirection: SC.LAYOUT_HORIZONTAL,
         autoresizeBehavior: SC.RESIZE_TOP_LEFT,
-	    defaultThickness: 0.8,
+        defaultThickness: 0.8,
+		//The list view is nested into the scrollview which is now in the splitview.
         topLeftView: SC.ScrollView.design({
-	      hasHorizontalScroller: NO,
-	      layout: { top: 36, bottom: 32, left: 0, right: 0 },
-	      backgroundColor: 'white',
+          hasHorizontalScroller: NO,
+          layout: { top: 36, bottom: 32, left: 0, right: 0 },
+          backgroundColor: 'white',
+          //Here is the original list view, which is bound to the tasksController
+          contentView: SC.ListView.design({
+            contentBinding: 'Todos.tasksArrayController.arrangedObjects',
+            selectionBinding: 'Todos.tasksArrayController.selection',
+            contentValueKey: "description",
+            contentCheckboxKey: "isDone",
+            rowHeight: 21,
+            canEditContent: YES,
+            canDeleteContent: YES,
 
-	      contentView: SC.ListView.design({
-	        contentBinding: 'Todos.tasksController.arrangedObjects',
-	        selectionBinding: 'Todos.tasksController.selection',
-	        contentValueKey: "description",
-	        contentCheckboxKey: "isDone",
-	        rowHeight: 21,
-	        canEditContent: YES,
-	        canDeleteContent: YES,
-
-	        target: "Todos.tasksController",
-	        action: "toggleDone"
-	      })
-	    }),
-	    topLeftMinThickness: 150,
-	    topLeftMaxThickness: 250,
+            target: "Todos.tasksArrayController",
+            action: "toggleDone"
+          })
+        }),
+        topLeftMinThickness: 150,
+        topLeftMaxThickness: 250,
         dividerView: SC.SplitDividerView.design({
             layout: {}
         }),
+        //This view shows up on the right. It is a placeholder, later we will use a formview.
         bottomRightView: SC.LabelView.design({
-	        textAlign: SC.ALIGN_CENTER,
-	        valueBinding: "Todos.tasksController.summary"
-	      }),
+            textAlign: SC.ALIGN_CENTER,
+            valueBinding: "Todos.taskController.description"
+          }),
     }),
     
     bottomView: SC.ToolbarView.design({
@@ -77,7 +74,7 @@ Todos.mainPage = SC.Page.design({
       summaryView: SC.LabelView.design({
         layout: { centerY: 0, height: 18, left: 20, right: 20 },
         textAlign: SC.ALIGN_CENTER,
-        valueBinding: "Todos.tasksController.summary"
+        valueBinding: "Todos.tasksArrayController.summary"
       })
     })
   })

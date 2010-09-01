@@ -24,7 +24,7 @@ Todos.main = function main() {
   
   var query = SC.Query.local(Todos.Task, { orderBy: 'isDone,description' })
   var tasks = Todos.store.find(query);
-  Todos.tasksController.set('content', tasks);
+  Todos.tasksArrayController.set('content', tasks);
 
 } ;
 

@@ -4,6 +4,10 @@
 // ==========================================================================
 /*globals Todos */
 
+Todos.taskController = SC.ObjectController.create({
+	contentBinding: SC.Binding.single('Todos.tasksArrayController.selection'),
+});
+
 /** @class
 
   Manages the tasks in the application
@@ -11,7 +15,7 @@
   @extends SC.ArrayController
   @extends SC.CollectionViewDelegate
 */
-Todos.tasksController = SC.ArrayController.create(
+Todos.tasksArrayController = SC.ArrayController.create(
   SC.CollectionViewDelegate,
   /** @scope Todos.tasksController.prototype */ {
 
