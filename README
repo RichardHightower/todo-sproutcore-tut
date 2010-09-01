@@ -15,3 +15,6 @@ To setup a new remote repo, I do this:
 
  git remote add origin git@github.com:RichardHightower/todo-sproutcore-tut.git
 
+To pull down (svn up) from the repo, I do this:
+
+ git pull origin master
