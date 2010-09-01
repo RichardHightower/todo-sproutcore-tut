@@ -1,3 +1,17 @@
 This is a new readme file. 
 I plan on writing some sproutcore tuts.
 They will go here.
+
+To commit local changes I do this:
+
+ git commit  -a -m "THIRD COMMIT"
+
+To push changes to the remote repo on github I do this:
+
+ git push origin master
+
+
+To setup a new remote repo, I do this:
+
+ git remote add origin git@github.com:RichardHightower/todo-sproutcore-tut.git
+
