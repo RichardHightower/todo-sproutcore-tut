@@ -1,0 +1,20 @@
+=============================================================================
+Project:   Todos
+Copyright: ©2010 My Company, Inc.
+=============================================================================
+
+== Welcome to the SproutCore Todo's Sample
+
+Goals for this example:
+
+1) Add splitter pane with a view that has just a label
+  1.1) Left side of splitter pane has list view
+  1.2) Right side of splitter pane has label
+2) Add ObjectController
+  2.1) Add binding to array controller 
+3) Show information about the current Todo task in the new view
+  3.1) Add binding to content of Object controller
+
+
+
+
