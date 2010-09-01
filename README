@@ -34,3 +34,10 @@ To setup a new remote repo, I do this:
 To pull down (svn up) from the repo, I do this:
 
  git pull origin master
+
+You can just type:
+
+ git push
+
+To add things to the repo after the origin has been defined.
+
